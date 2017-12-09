@@ -1,0 +1,3 @@
+This simple Discord bot rotates the colour of a user's role. The effect is that, when a group of people with the role speak in a channel, a rainbow is formed with their names.
+
+The project depends upon Rapptz's discord.py library.
