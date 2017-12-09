@@ -1,11 +1,11 @@
 #!/usr/local/bin/python3
 
 import asyncio
-#import concurrent.futures
 import discord
+import io
 import getpass
-import signal
 import logging
+import signal
 
 # Log everything
 logging.basicConfig(level=logging.INFO)
@@ -53,10 +53,14 @@ class RainbowBot(discord.Client):
     asyncio.ensure_future(self.increment_rainbow_periodic())
 
     # Log in
-    print("Log in to ", email)
-    password = getpass.getpass("Password: ")
-    print("Logging in to", email + "...")
-    await self.login(email, password)
+    #print("Log in to ", email)
+    #password = getpass.getpass("Password: ")
+    #print("Logging in to " + email + "...")
+    #await self.login(email, password)
+    token = None
+    with open("./Token.txt") as f:
+      token = f.read()
+    await self.login(token, bot=False)
     print("Logged in. Connecting...")
     await self.connect()
   
